@@ -1,0 +1,26 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "amazon-like storefront",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinhubbard/Bamazon.git"
+  },
+  "keywords": [
+    "node.js",
+    "mysql"
+  ],
+  "author": "Kevin Hubbard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinhubbard/Bamazon/issues"
+  },
+  "homepage": "https://github.com/kevinhubbard/Bamazon#readme",
+  "dependencies": {
+    "mysql": "^2.13.0"
+  }
+}
