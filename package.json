@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/kevinhubbard/Bamazon#readme",
   "dependencies": {
+    "inquirer": "^3.0.6",
     "mysql": "^2.13.0"
   }
 }
