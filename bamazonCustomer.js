@@ -7,12 +7,12 @@ var connection = mysql.createConnection({
 	password: 'root',
 	database: 'bamazon_db'
 });
-
+connection.connect();
 
 
 function showItems(){
-	connection.connect();
-
+	
+	
 	connection.query('SELECT * FROM products', function (error, results, fields) {
 		if (error) throw error;
 		
@@ -39,10 +39,11 @@ function showItems(){
 		console.log('------------------------------------------------------');
 	});
 
-	connection.end();
+	
 };
 
 function purchase(){
+
 	inquirer.prompt([
 	{
 		type: 'input',
@@ -62,6 +63,29 @@ function purchase(){
 
 			console.log(answers.id);
 			console.log(answers.quantity);
+
+/*			var sql = 'SECECT * FROM products WHERE id = ' + connection.escape(answers.id);
+			connection.query(sql, function(error, results, fields){
+				if (error) throw error;
+				console.log('your query line is: ' + sql);
+				console.log(results);
+			});*/
+
+				connection.query('SELECT * FROM products WHERE id = ?', [answers.id] , function (error, results, fields) {
+
+					if(answers.quantity <= results[0].stock_quantity){
+						console.log('Purchase: ' + results[0].product_name + ' For $' + results[0].price + '?');
+					} else{
+						console.log('sorry we dont have enough in stock to fulfill your order');
+					}
+				
+
+			});
+
+			connection.end();
+
+			
+
 
 	});
 
